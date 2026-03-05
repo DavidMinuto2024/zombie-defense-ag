@@ -9,6 +9,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.3" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.13.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\zombie-defense.Application\zombie-defense.Application.csproj" />
+    <ProjectReference Include="..\zombie-defense.Infraestructure\zombie-defense.Infraestructure.csproj" />
   </ItemGroup>
 
 </Project>

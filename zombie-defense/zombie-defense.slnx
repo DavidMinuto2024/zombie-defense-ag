@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="zombie-defense/zombie-defense.csproj" />
+  <Project Path="zombie-defense.Application/zombie-defense.Application.csproj" Id="17e86dda-4d65-4fd3-8e41-44fe0be44bb6" />
+  <Project Path="zombie-defense.Domain/zombie-defense.Domain.csproj" Id="a4e5c2ea-13a2-47b2-83df-48ceb81c251f" />
+  <Project Path="zombie-defense.Infraestructure/zombie-defense.Infraestructure.csproj" Id="dce7e397-8dc2-4977-a65a-b5f576781791" />
+  <Project Path="zombie-defense/zombie-defense.API.csproj" />
 </Solution>
