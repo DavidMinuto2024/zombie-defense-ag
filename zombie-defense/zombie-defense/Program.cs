@@ -4,6 +4,7 @@ using zombie_defense.Application.useCases;
 using zombie_defense.Domain.Ports;
 using zombie_defense.Infraestructure.Adapters;
 using zombie_defense.Infraestructure.Persistence;
+using zombie_defense.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,6 +57,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 app.UseCors();
+
+app.UseMiddleware<ApiKeyMiddleware>();
 app.MapControllers();
 
 app.Run();
