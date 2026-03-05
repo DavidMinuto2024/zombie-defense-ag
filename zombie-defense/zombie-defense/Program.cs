@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
+using System.Text.Json.Serialization;
 using zombie_defense.Application.useCases;
 using zombie_defense.Domain.Ports;
 using zombie_defense.Infraestructure.Adapters;
@@ -20,6 +21,13 @@ builder.Services.AddScoped<ISimulationRepository, SqlSimulationRepository>();
 builder.Services.AddScoped<CalculateOptimalStrategyUseCase>();
 builder.Services.AddScoped<SaveSimulationUseCase>();
 builder.Services.AddScoped<OptimalStrategy>();
+builder.Services.AddScoped<HistoryUseCase>();
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    });
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
