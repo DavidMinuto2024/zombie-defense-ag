@@ -6,6 +6,6 @@
         public int BulletsUsed { get; set; }
         public int SecondsUsed { get; set; }
 
-        // lista de eliminacion en orden 
+        public List<ZombieKillSummary> EliminatedZombies { get; set; } = [];
     }
 }
