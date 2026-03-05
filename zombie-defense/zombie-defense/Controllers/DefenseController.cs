@@ -5,7 +5,7 @@ namespace zombie_defense.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class DefenseController(CalculateOptimalStrategyUseCase calculateStrategy) : ControllerBase
+    public class DefenseController(OptimalStrategy optimalStrategy) : ControllerBase
     {
         [HttpGet("optimal-strategy")]
         public async Task<IActionResult> GetOptimalStrategy([FromQuery] int bullets, [FromQuery] int secondsAvailable)
@@ -14,7 +14,7 @@ namespace zombie_defense.Controllers
                 return BadRequest("Both 'bullets' and 'secondsAvailable' query parameters are required.");
             }
 
-            var result = await calculateStrategy.ExecuteAsync(bullets, secondsAvailable);
+            var result = await optimalStrategy.ExecuteAsync(bullets, secondsAvailable);
 
             return Ok(result);
         }

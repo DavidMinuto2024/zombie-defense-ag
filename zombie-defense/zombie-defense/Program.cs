@@ -14,9 +14,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Add services to the container.
 
 builder.Services.AddScoped<IZombieTypeRepository, SqlZombieTypeRepository>();
+builder.Services.AddScoped<ISimulationRepository, SqlSimulationRepository>();
 
 // Uses Cases
 builder.Services.AddScoped<CalculateOptimalStrategyUseCase>();
+builder.Services.AddScoped<SaveSimulationUseCase>();
+builder.Services.AddScoped<OptimalStrategy>();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
