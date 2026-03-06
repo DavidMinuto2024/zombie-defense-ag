@@ -41,15 +41,18 @@ builder.Services.AddOpenApi(options =>
             return Task.CompletedTask;
         });
     });
-var allowedOrigins = builder.Configuration.GetSection("AllowedHosts").Get<string>();
+var corsOrigins = builder.Configuration["CorsOrigins"] ?? "*";
 
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(builder =>
+    options.AddDefaultPolicy(policy =>
     {
-        builder.WithOrigins(allowedOrigins!)
-               .AllowAnyMethod()
-               .AllowAnyHeader();
+        if (corsOrigins == "*")
+            policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+        else
+            policy.WithOrigins(corsOrigins.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
     });
 });
 
