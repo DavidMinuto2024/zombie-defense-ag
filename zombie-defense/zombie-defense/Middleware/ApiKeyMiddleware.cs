@@ -17,7 +17,7 @@
                 await context.Response.WriteAsync("API key is missing.");
                 return;
             }
-            var configuredApiKey = configuration.GetValue<string>("ApiXKey");
+            var configuredApiKey = configuration.GetValue<string>("ApiKey");
             if (apiKey != configuredApiKey)
             {
                 context.Response.StatusCode = StatusCodes.Status403Forbidden;
